@@ -1,3 +1,8 @@
+---
+layout: default
+title: manage vim with github
+---
+
 #初始的vim 文件和目录结构
     ~/.vim/
     ~/.vim/vimrc
