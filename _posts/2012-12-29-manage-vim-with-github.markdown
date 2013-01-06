@@ -3,6 +3,7 @@ layout: default
 title: manager vim and plugin with github
 ---
 #使用github管理VIM
+---
 现在几乎所有的vim插件都能在github上找到，所以用github管理很方便。
 安装vim后所有的额外配置文件都放在$HOME/.vim下，所以只同步这个目录即可。
 ##初始的vim 文件和目录结构
