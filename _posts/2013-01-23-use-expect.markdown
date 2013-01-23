@@ -20,4 +20,3 @@ title: expect 用法小记
     send "$pwd\r"
     interact
     {% endhighlight %}
-
