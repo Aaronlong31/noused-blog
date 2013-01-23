@@ -889,7 +889,7 @@ pre.prettyprint {
 
 pre code {
   padding: 0;
- /** color: inherit;**/
+  color: inherit;
   background-color: transparent;
   border: 0;
 }
