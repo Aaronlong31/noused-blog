@@ -2,6 +2,7 @@
 layout: default
 title: expect 用法小记
 ---
+
 使用expect实现交互式登录。
 
 1. 安装expect
@@ -20,4 +21,11 @@ spawn ssh serverip
 expect "Password:"
 send "$pwd\r"
 interact
+{% endhighlight %}
+
+
+{% highlight java %}
+public void static main(String[] args){
+    System.our.println("Hello highlight!");
+}
 {% endhighlight %}
