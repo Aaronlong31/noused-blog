@@ -10,7 +10,8 @@ sudo apt-get install python-setuptools
 sudo easy_install Pygments
 {% endhighlight %}
 
-###Generate style file by Pygments
+###Create style file
+you can generate it by Pygments:
 
 {% highlight sh %}
 pygmentize -S default -f html > css/pygments/highlight.css
@@ -38,8 +39,20 @@ To get a list of known styles you can use this snippet:
 pygments: true
 {% endhighlight %}
 
+###Write code
+To denote a code block that should be highlighted:
+
+``` textile
+{% highlight sh %}
+your code here
+{% endhighlight %}
+```
+
 ###Done!
 
 ---
 ####Reference:
-1. <http://pygments.org/docs/styles/>
+1. [Install Pygments](http://pygments.org/docs/installation/)
+1. [Pygments Highlight Document](http://pygments.org/docs/styles/)
+2. [Lexers language short code](http://pygments.org/docs/lexers/)
+3. [Jekll configuration](https://github.com/mojombo/jekyll/wiki/Configuration)
