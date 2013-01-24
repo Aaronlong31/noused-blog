@@ -68,6 +68,7 @@ body {
 ------------------------- */
 .subhead {
   text-align: left;
+  margin-bottom: 30px;
   border-bottom: 1px solid #ddd;
 }
 .subhead h1 {
