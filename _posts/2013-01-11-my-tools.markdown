@@ -1,0 +1,11 @@
+## tools in ubuntu
+1. byobu
+2. zsh + oh-my-zsh
+3. screen
+
+## development
+1. git/github
+2. gradle
+4. vim
+5. eclipse
+6. sonatype nexus
