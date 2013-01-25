@@ -126,3 +126,9 @@ body {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+
+span.previous, span.next {
+    display: inline;
+    height: 40px;
+    line-height: 40px;
+}
