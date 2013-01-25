@@ -1,8 +1,6 @@
 ---
 layout: default
-title: manager vim and plugin with github
----
-#使用github管理VIM
+title: 使用github管理VIM
 ---
 现在几乎所有的vim插件都能在github上找到，所以用github管理很方便。
 安装vim后所有的额外配置文件都放在$HOME/.vim下，所以只同步这个目录即可。
@@ -26,7 +24,7 @@ title: manager vim and plugin with github
 
 ##使用 Pathogen 管理插件
 
-插件地址： https://github.com/tpope/vim-pathogen
+插件地址： <https://github.com/tpope/vim-pathogen>
 安装方法： 
 
     mkdir -p ~/.vim/autoload/ ~/vim/bundle; \
@@ -42,7 +40,7 @@ title: manager vim and plugin with github
 
 ##使用 vundle 安装插件
 vundle可以自动帮你到github上下载plugin到bundle目录下。
-插件地址： https://github.com/gmarik/vundle
+插件地址： <https://github.com/gmarik/vundle>
 安装方法： 
 
     cd ~/.vim
@@ -65,7 +63,7 @@ vundle可以自动帮你到github上下载plugin到bundle目录下。
     Bundle 'AutoComplPop' "optional
     filetype on
 
-如果想安装插件，比如vim-markdown，插件地址：https://github.com/plasticboy/vim-markdown ，只需要在vimrc中添加以下一行：
+如果想安装插件，比如vim-markdown，插件地址：<https://github.com/plasticboy/vim-markdown> ，只需要在vimrc中添加以下一行：
 
     Bundle 'plasticboy/vim-markdown'
 plasticboy是用户名，如果插件用户名是vim-scripts，则可以省略用户名。
@@ -81,10 +79,10 @@ plasticboy是用户名，如果插件用户名是vim-scripts，则可以省略�
 
 ## for windows
 1. $HOME下的vim目录是vimfiles，所以以上的.vim都要换成vimfiles。
-2. 安装vundle参考：https://github.com/gmarik/vundle/wiki/Vundle-for-Windows
+2. 安装vundle参考：<https://github.com/gmarik/vundle/wiki/Vundle-for-Windows>
 3. vim读取用户自定义的vim配置文件是$HOME\.vimrc，但windows下不能创建链接，所以需要修改.vimrc加入以下内容：
 
         source $VIM\_vimrc
         source ~\vimfiles\vimrc
 
-我的vim配置：https://github.com/Aaronlong31/dotvim
+我的vim配置：<https://github.com/Aaronlong31/dotvim>
