@@ -1,0 +1,9 @@
+---
+layout: post
+wordpress_id: 420
+wordpress_url: http://www.zlong.org/?p=420
+categories:
+- 未分类
+tags: []
+---
+ubuntu@ubuntu:~$ sudo fdisk -luDisk /dev/sda: 320.1 GB, 320072933376 bytes255 heads, 63 sectors/track, 38913 cylinders, total 625142448 sectorsUnits = sectors of 1 * 512 = 512 bytesSector size (logical/physical): 512 bytes / 512 bytesI/O size (minimum/optimal): 512 bytes / 512 bytesDisk identifier: 0x8f5fdaff   Device Boot      Start         End      Blocks   Id  System/dev/sda1   *        2048     3071999     1534976    7  HPFS/NTFSPartition 1 does not end on cylinder boundary./dev/sda2         3084480    82429514    39672517+   7  HPFS/NTFS/dev/sda3        82429515   604654469   261112477+   f  W95 Ext'd (LBA)/dev/sda4       604659712   625153409    10246849    7  HPFS/NTFS/dev/sda5        82429578   227833829    72702126    7  HPFS/NTFS/dev/sda6       227833893   416244149    94205128+   7  HPFS/NTFS/dev/sda7       416244213   541184901    62470344+   7  HPFS/NTFS

@@ -1,0 +1,11 @@
+---
+layout: post
+title: mysql-can't get hostname for your address
+wordpress_id: 554
+wordpress_url: http://www.zlong.org/?p=554
+categories:
+- mysql
+- database
+tags: []
+---
+新搭建了个服务器环境，装了mysql，远程连接是出现以下错误：[shell]ERROR 1042 (HY000): Can't get hostname for your address[/shell]GOOGLE后问题解决，记录一下。在my.ini中的[mysqld]加入skip-name-resolve，重启mysql即可。<!--more-->禁止MySQL对外部连接进行DNS解析，使用这一选项可以消除MySQL进行DNS解析的时间。但需要注意，如果开启该选项，则所有远程主机连接授权都要使用IP地址方式，否则MySQL将无法正常处理连接请求!#1：去掉mysql启动参数中的skip-name-resolve ，然后jdbc连接串用ip地址和主机名均可。#2：如果保留启动参数skip-name-resolve 的话，在jdbc连接串中只能使用IP地址的方式连接数据库。
