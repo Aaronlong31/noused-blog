@@ -1,5 +1,0 @@
-markdown: rdiscount
-pygments: true
-exclude: ['README.markdown']
-paginate: 3
-auto: true
