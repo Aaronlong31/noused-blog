@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spring的 PropertyPlaceholderConfigurer配置</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/pygments/highlight.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="jumbotron subhead">
+        <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
+    <div class="container">
+        <h1>spring的 PropertyPlaceholderConfigurer配置</h1>
+        
+    </div>
+    </header>
+    <div class="container">
+    <p>在使用spring时，经常要用到各种properties的配置文件，并且各个环境下的文件还不一样，因此要使用动态加载不通环境下的配置文件。下面来说一下如何进行配置。<!--more-->在spring的住配置文件applicationContext.xml中使用一下配置：[xml]&lt;bean class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;      &lt;property name=&quot;systemPropertiesModeName&quot; value=&quot;SYSTEM_PROPERTIES_MODE_OVERRIDE&quot; /&gt;      &lt;property name=&quot;ignoreResourceNotFound&quot; value=&quot;true&quot; /&gt;      &lt;property name=&quot;locations&quot;&gt;          &lt;list&gt;              &lt;!-- 标准配置 --&gt;              &lt;value&gt;classpath:jdbc.properties&lt;/value&gt;              &lt;!-- 本机测试环境 --&gt;              &lt;value&gt;file:d:/jdbc.properties&lt;/value&gt;              &lt;!-- 服务器生产环境配置 --&gt;              &lt;value&gt;file:/usr/local/jdbc.properties&lt;/value&gt;          &lt;/list&gt;      &lt;/property&gt;  &lt;/bean&gt;  [/xml]我在这里配置了三个环境的配置文件，有的文件可能找不到，所以将ignoreResourceNotFound属性设为true，这样就可以忽略找不到的文件。最后配置的属性会覆盖之前配置的属性，就是说，如果classpath下存在jdbc.properties，目录/usr/local/jdbc.properties下也存在，后面的会替换前面的。spring3.0后可以使用简化配置：不过不能忽略找不到的文件[xml]&lt;context:property-placeholder            location=&quot;file:d:/emoe/jdbc.properties,classpath:jdbc.properties,file:/usr/local/jdbc.properties&quot; /&gt;  [/xml]</p>
+ 
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <p>Maintained by <a href="https://github.com/Aaronlong31">Aaronlong31</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </div>
+    </footer>
+</body>
+</html>

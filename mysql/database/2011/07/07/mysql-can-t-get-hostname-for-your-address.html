@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mysql-can't get hostname for your address</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/pygments/highlight.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="jumbotron subhead">
+        <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
+    <div class="container">
+        <h1>mysql-can't get hostname for your address</h1>
+        
+    </div>
+    </header>
+    <div class="container">
+    <p>新搭建了个服务器环境，装了mysql，远程连接是出现以下错误：[shell]ERROR 1042 (HY000): Can't get hostname for your address[/shell]GOOGLE后问题解决，记录一下。在my.ini中的[mysqld]加入skip-name-resolve，重启mysql即可。<!--more-->禁止MySQL对外部连接进行DNS解析，使用这一选项可以消除MySQL进行DNS解析的时间。但需要注意，如果开启该选项，则所有远程主机连接授权都要使用IP地址方式，否则MySQL将无法正常处理连接请求!#1：去掉mysql启动参数中的skip-name-resolve ，然后jdbc连接串用ip地址和主机名均可。#2：如果保留启动参数skip-name-resolve 的话，在jdbc连接串中只能使用IP地址的方式连接数据库。</p>
+ 
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <p>Maintained by <a href="https://github.com/Aaronlong31">Aaronlong31</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linux防火墙设置 </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/pygments/highlight.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="jumbotron subhead">
+        <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
+    <div class="container">
+        <h1>linux防火墙设置 </h1>
+        
+    </div>
+    </header>
+    <div class="container">
+    <p>查看防火墙信息[shell]/etc/init.d/iptables status[/shell]开启指定端口[shell]/sbin/iptables -I INPUT -p tcp --dport 8080 -j ACCEPT/etc/rc.d/init.d/iptables save[/shell]或者编辑/etc/sysconfig/iptables添加行：[shell]-A RH-Firewall-1-INPUT -m state –state NEW -m tcp -p tcp –dport 8080 -j ACCEPT #也可使用-I INPUT -p tcp --dport 8080 -j ACCEPT[/shell]使更改的防火墙生效[shell]/etc/init.d/iptables restart #不推荐使用重启系统方式[/shell]关闭防火墙服务[shell]/etc/init.d/iptables stop[/shell]永久关闭防火墙[shell]chkconfig –level 35 iptables off #此方法源自网络，未实验，安全考虑拒绝使用此方法[/shell]</p>
+ 
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <p>Maintained by <a href="https://github.com/Aaronlong31">Aaronlong31</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </div>
+    </footer>
+</body>
+</html>

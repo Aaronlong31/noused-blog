@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用github管理VIM</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/pygments/highlight.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".bs_docs_sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/index.html" class="brand">Aaron's Blog</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/index.html">Home</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="jumbotron subhead">
+        <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
+    <div class="container">
+        <h1>使用github管理VIM</h1>
+        
+    </div>
+    </header>
+    <div class="container">
+    <p>现在几乎所有的vim插件都能在github上找到，所以用github管理很方便。
+安装vim后所有的额外配置文件都放在$HOME/.vim下，所以只同步这个目录即可。</p>
+
+<h2>初始的vim 文件和目录结构</h2>
+
+<pre><code>~/.vim/
+~/.vim/vimrc
+~/.vim/.gitignore
+~/.vimrc
+</code></pre>
+
+<p>其中~/.vimrc是~/.vim/vimrc的链接。创建方式如下：</p>
+
+<pre><code>ln -s ~/.vim/vimrc ~/.vimrc
+</code></pre>
+
+<h2>使用 github</h2>
+
+<p>在github上创建一个repository，名为dotvim，然后在本机执行以下命令:</p>
+
+<pre><code>cd ~/.vim
+git init
+git remote add git@github.com:{youraccountname}/dotvim.git
+git push
+</code></pre>
+
+<h2>使用 Pathogen 管理插件</h2>
+
+<p>插件地址： <a href="https://github.com/tpope/vim-pathogen">https://github.com/tpope/vim-pathogen</a>
+安装方法：</p>
+
+<pre><code>mkdir -p ~/.vim/autoload/ ~/vim/bundle; \
+curl -Sso ~/.vim/autoload/pathogen.vim \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+</code></pre>
+
+<p>然后下载pathogen.vim到autoload下。
+修改 ~/.vim/vimrc，添加以下内容：</p>
+
+<pre><code>call pathogen#infect()
+syntax on
+filetype plugin indent on
+</code></pre>
+
+<h2>使用 vundle 安装插件</h2>
+
+<p>vundle可以自动帮你到github上下载plugin到bundle目录下。
+插件地址： <a href="https://github.com/gmarik/vundle">https://github.com/gmarik/vundle</a>
+安装方法：</p>
+
+<pre><code>cd ~/.vim
+git submodule add https://github.com/gmarik/vundle.git bundle/vundle
+</code></pre>
+
+<p>这里是将vundle作为git的submodule，这样你的github repository中就不会直接存放vundle的文件，只是有一个vundle的链接。
+修改 ~/.vim/vimrc，添加以下内容：</p>
+
+<pre><code>set nocompatible
+filetype off
+if has("unix")
+    set rtp+=~/.vim/bundle/vundle/
+    call vundle#rc()
+else 
+    set rtp+=~/vimfiles/bundle/vundle/
+    call vundle#rc('$HOME/vimfiles/bundle/')
+endif
+Bundle 'gmarik/vund'
+Bundle 'plasticbo/vim-markdown' "optional
+Bundle 'AutoComplPop' "optional
+filetype on
+</code></pre>
+
+<p>如果想安装插件，比如vim-markdown，插件地址：<a href="https://github.com/plasticboy/vim-markdown">https://github.com/plasticboy/vim-markdown</a> ，只需要在vimrc中添加以下一行：</p>
+
+<pre><code>Bundle 'plasticboy/vim-markdown'
+</code></pre>
+
+<p>plasticboy是用户名，如果插件用户名是vim-scripts，则可以省略用户名。
+然后执行</p>
+
+<pre><code>vim +BundleInstall
+</code></pre>
+
+<p>当提示Done!时，插件就都安装到~/.vim/bundle中了。
+这里有个问题，vundle从github上下载插件时也是通过git命令的，但它是直接clone repository，这样你push你的.vim目录时就会把插件也push上去了。所以要在.gitignore文件中禁止提交插件目录bundle，但作为submodule存在的bundle/vundle目录还是要push的，修改.gitignore如下：</p>
+
+<pre><code>bundle/
+!bundle/vundle
+</code></pre>
+
+<h2>for windows</h2>
+
+<ol>
+<li>$HOME下的vim目录是vimfiles，所以以上的.vim都要换成vimfiles。</li>
+<li>安装vundle参考：<a href="https://github.com/gmarik/vundle/wiki/Vundle-for-Windows">https://github.com/gmarik/vundle/wiki/Vundle-for-Windows</a></li>
+<li><p>vim读取用户自定义的vim配置文件是$HOME.vimrc，但windows下不能创建链接，所以需要修改.vimrc加入以下内容：</p>
+
+<pre><code> source $VIM\_vimrc
+ source ~\vimfiles\vimrc
+</code></pre></li>
+</ol>
+
+
+<p>我的vim配置：<a href="https://github.com/Aaronlong31/dotvim">https://github.com/Aaronlong31/dotvim</a></p>
+ 
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <p>Maintained by <a href="https://github.com/Aaronlong31">Aaronlong31</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </div>
+    </footer>
+</body>
+</html>

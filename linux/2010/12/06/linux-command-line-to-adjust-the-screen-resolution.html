@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux命令行屏幕分辨率调整</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/pygments/highlight.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header class="jumbotron subhead">
+        <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
+    <div class="container">
+        <h1>Linux命令行屏幕分辨率调整</h1>
+        
+    </div>
+    </header>
+    <div class="container">
+    <p>在grub.conf文件的kernel /vmlinuz-2.6.11-EL ro root=LABEL=/ 行后面添加vga＝791，可以改变命令行下的屏幕分辨率。vga后面的数字并不是随意的，其与屏幕分辨率及色深的对应关系如下：Colours 640x400 640x480 800x600 1024x768 1152x864 1280x1024 1600x1200 --------+-------------------------------------------------------------- 4 bits | ?       ?       0x302     ?         ?        ?         ? 8 bits | 0x300   0x301    0x303    0x305    0x161     0x307     0x31C 16 bits | ?       0x311   0x314     0x317    0x163    0x31A     0x31E24 bits | ?      0x312   0x315    0x318      ?       0x31B     0x31F 32 bits | ?       ?       ?        ?        0x164     ?          ?将上述16进制转换为十进制之后可以得到如下对应关系：Colours 640x400 640x480 800x600 1024x768 1152x864 1280x1024 1600x1200--------+-------------------------------------------------------------- 4 bits | ?        ?       770       ?         ?        ?          ? 8 bits | 768     769     771      773      353       775        796 16 bits | ?      785     788      791      355      794        798 24 bits | ?      786     789      792        ?       795       79932 bits | ?       ?        ?         ?       356       ?         ?</p>
+ 
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <p>Maintained by <a href="https://github.com/Aaronlong31">Aaronlong31</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </div>
+    </footer>
+</body>
+</html>

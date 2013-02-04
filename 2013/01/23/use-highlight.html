@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Use Highlight in Github Page</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/pygments/highlight.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".bs_docs_sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/index.html" class="brand">Aaron's Blog</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/index.html">Home</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="jumbotron subhead">
+        <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
+    <div class="container">
+        <h1>Use Highlight in Github Page</h1>
+        
+    </div>
+    </header>
+    <div class="container">
+    <h3>Install pygment</h3>
+
+<div class="highlight"><pre><code class="sh">sudo apt-get install python-setuptools
+sudo easy_install Pygments
+</code></pre></div>
+
+
+<h3>Create style file</h3>
+
+<p>you can generate it by Pygments:</p>
+
+<div class="highlight"><pre><code class="sh">pygmentize -S default -f html &gt; css/pygments/highlight.css
+</code></pre></div>
+
+
+<p>default is a style. Pygments ships some builtin styles which are maintained by the Pygments team.
+To get a list of known styles you can use this snippet:</p>
+
+<div class="highlight"><pre><code class="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pygments.styles</span> <span class="kn">import</span> <span class="n">STYLE_MAP</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">STYLE_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="p">[</span><span class="s">&#39;default&#39;</span><span class="p">,</span> <span class="s">&#39;emacs&#39;</span><span class="p">,</span> <span class="s">&#39;friendly&#39;</span><span class="p">,</span> <span class="s">&#39;colorful&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s">&#39;monokai&#39;</span><span class="p">,</span> <span class="s">&#39;manni&#39;</span><span class="p">,</span> <span class="s">&#39;rrt&#39;</span><span class="p">,</span> <span class="s">&#39;perldoc&#39;</span><span class="p">,</span> <span class="s">&#39;borland&#39;</span><span class="p">,</span> <span class="s">&#39;colorful&#39;</span><span class="p">,</span> <span class="s">&#39;default&#39;</span><span class="p">,</span> <span class="s">&#39;murphy&#39;</span><span class="p">,</span> <span class="s">&#39;vs&#39;</span><span class="p">,</span> <span class="s">&#39;trac&#39;</span><span class="p">,</span> <span class="s">&#39;tango&#39;</span><span class="p">,</span> <span class="s">&#39;fruity&#39;</span><span class="p">,</span> <span class="s">&#39;autumn&#39;</span><span class="p">,</span> <span class="s">&#39;bw&#39;</span><span class="p">,</span> <span class="s">&#39;emacs&#39;</span><span class="p">,</span> <span class="s">&#39;vim&#39;</span><span class="p">,</span> <span class="s">&#39;pastie&#39;</span><span class="p">,</span> <span class="s">&#39;friendly&#39;</span><span class="p">,</span> <span class="s">&#39;native&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+
+<h3>Add the css file to _layout/default.html.</h3>
+
+<div class="highlight"><pre><code class="css"><span class="o">&lt;</span><span class="nt">link</span> <span class="nt">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="nt">href</span><span class="o">=</span><span class="s2">&quot;/css/pygments/highlight.css&quot;</span> <span class="o">/&gt;</span>
+</code></pre></div>
+
+
+<h3>Modify your _config.yml add this:</h3>
+
+<div class="highlight"><pre><code class="yaml"><span class="l-Scalar-Plain">pygments</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+</code></pre></div>
+
+
+<h3>Write code</h3>
+
+<p>To denote a code block that should be highlighted:</p>
+
+<p>``` textile</p>
+
+<div class="highlight"><pre><code class="sh">your code here
+</code></pre></div>
+
+
+<p>```</p>
+
+<h3>Done!</h3>
+
+<hr />
+
+<h4>Reference:</h4>
+
+<ol>
+<li><a href="http://pygments.org/docs/installation/">Install Pygments</a></li>
+<li><a href="http://pygments.org/docs/styles/">Pygments Highlight Document</a></li>
+<li><a href="http://pygments.org/docs/lexers/">Lexers language short code</a></li>
+<li><a href="https://github.com/mojombo/jekyll/wiki/Configuration">Jekll configuration</a></li>
+</ol>
+
+ 
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <p>Maintained by <a href="https://github.com/Aaronlong31">Aaronlong31</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </div>
+    </footer>
+</body>
+</html>

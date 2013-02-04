@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aaron's Blog</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/pygments/highlight.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body data-spy="scroll" data-target=".bs_docs_sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/index.html" class="brand">Aaron's Blog</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/index.html">Home</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="jumbotron subhead">
+        <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
+    <div class="container">
+        <h1>Aaron's Blog</h1>
+        
+    </div>
+    </header>
+    <div class="container">
+    
+<h1><a href="/2013/01/11/use-goagent-in-ubuntu.html">在Ubuntu中使用goagent</a></h1>
+<p class="author">
+<span class="date">2013-01-11 00:00:00 +0800</span>
+</p>
+<div class="content">
+    <ol>
+<li>安装 python</li>
+</ol>
+
+
+<div class="highlight"><pre><code class="sh">    sudo apt-get install python
+    
+</code></pre></div>
+
+
+<ol>
+<li>下载goagent</li>
+<li>安装GAE for linux，下载地址: https://developers.google.com/appengine/downloads , 下载后解压到/home/username/tools/google_appengine</li>
+<li>goagent现在托管在github上，地址: https://github.com/goagent/goagent ， 最好fork一下，创建自己的一份copy，以后修改配置文件就修改自己的好了。以我的为例，我的goagent地址: https://github.com/Aaronlong31/goagent</li>
+<li><p>下载goagent到google_appengine目录:</p>
+
+<p> git clone  git@github.com:Aaronlong31/goagent.git /home/username/google_appengine/goagent</p></li>
+</ol>
+
+
+</div>
+<hr/>
+
+<h1><a href="/2013/01/11/my-tools.html">My Tools</a></h1>
+<p class="author">
+<span class="date">2013-01-11 00:00:00 +0800</span>
+</p>
+<div class="content">
+    <h2>tools in ubuntu</h2>
+
+<ol>
+<li>byobu</li>
+<li>zsh + oh-my-zsh</li>
+<li>screen</li>
+</ol>
+
+
+<h2>development</h2>
+
+<ol>
+<li>git/github</li>
+<li>gradle</li>
+<li>vim</li>
+<li>eclipse</li>
+<li>sonatype nexus</li>
+</ol>
+
+
+</div>
+<hr/>
+
+<h1><a href="/2013/01/10/couchbase.html">Couchbase</a></h1>
+<p class="author">
+<span class="date">2013-01-10 00:00:00 +0800</span>
+</p>
+<div class="content">
+    <h2>view in couchbase</h2>
+
+<ol>
+<li>map function 的结果是按照emit（key, value)中的key来排序的</li>
+<li>design documents are replicated automatically to all the nodes within the cluster and are always kept in synchronization.</li>
+<li>During a view query, the index information for the given view query on all the nodes within the cluster is collated returned to the client.</li>
+<li>View index queries are always accessed from disk; Indexes are note kept in RAM by Couchbase Server.</li>
+<li>Indexes are created by Couchbase Server based on the view definition, but updating of these indexes can be controlled at the point of data querying, rather then each time data is inserted.</li>
+<li>Whether the index is updated when queries can be controlled through the <code>stale</code> parameter.</li>
+<li>Irrespective of the <code>stale</code> parameter, documents can only be indexed by the system once the document has been persisted to disk. If the document has not been persisted to disk, use of the <code>stale</code> will not force this process.</li>
+<li>Irrespective of the automated update process, documents can only be indexed by the system once the document has been persisted to disk. If the document has not been persisted to disk, the automated update process will not force the unwritten data to be written to disk.</li>
+<li>The view results are eventually consistent with what is stored in memory base on whether documents have been persisted to disk. It is possible to write a document to the cluster, and access the index, without the newly written document appearing in the generated view index.</li>
+<li>Conversely, documents that have been stored with an expiry may continue to be included within the view index until the document has been removed from the database by the expiry pager.</li>
+</ol>
+
+
+</div>
+<hr/>
+
+
+<!-- Pagination links -->
+<div class="pagination">
+    <ul>
+        
+        <li>
+        
+        <a href="/">«</a>
+        
+        </li>
+        
+
+        
+        <li><a href="/">1</a></li>
+        
+
+        
+        
+        <li class="active"><a href="javascript:void(0)">2</a></li>
+        
+        
+        
+        <li><a href="/page3">3</a> </li>
+        
+        
+        
+        <li><a href="/page4">4</a> </li>
+        
+        
+        
+        <li><a href="/page5">5</a> </li>
+        
+        
+        
+        <li><a href="/page6">6</a> </li>
+        
+        
+        
+        <li><a href="/page7">7</a> </li>
+        
+        
+        
+        <li><a href="/page8">8</a> </li>
+        
+        
+        
+        <li><a href="/page9">9</a> </li>
+        
+        
+        
+        <li><a href="/page10">10</a> </li>
+        
+        
+        
+        <li><a href="/page11">11</a> </li>
+        
+        
+        
+        <li><a href="/page12">12</a> </li>
+        
+        
+        
+        <li><a href="/page13">13</a> </li>
+        
+        
+        
+        <li><a href="/page14">14</a> </li>
+        
+        
+        
+        <li><a href="/page15">15</a> </li>
+        
+        
+        
+        <li><a href="/page16">16</a> </li>
+        
+        
+
+        
+        <li><a href="/page3">»</a></li>
+        
+    </ul>
+</div>
+ 
+    </div>
+    <footer class="footer">
+    <div class="container">
+        <p>Maintained by <a href="https://github.com/Aaronlong31">Aaronlong31</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+    </div>
+    </footer>
+</body>
+</html>
