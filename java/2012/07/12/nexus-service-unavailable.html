@@ -9,7 +9,21 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs_docs_sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/index.html" class="brand">Aaron's Blog</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                        <li><a href="/topics">Topics</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="jumbotron subhead">
         <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
     <div class="container">
@@ -20,6 +34,7 @@
     <div class="container">
     <p>今天访问本机的Nexus服务器，居然出现了一下错误：<pre class="brush: bash; gutter: true">HTTP ERROR: 503Problem accessing /nexus/index.html. Reason:    SERVICE_UNAVAILABLEPowered by Jetty://</pre>google了一下，发现原来是我新装的JDK 7的问题。我的nexus服务器是在JDK 6的环境下安装的，不能在JDK 7下运行。然后我想把JAVA_HOME改成JDK6的，发现JAVA_HOME就是JDK6的，但我用java -version查看版本时确实JDK7，郁闷了。查找资料后发现，当在系统中装了两套或多套版本的Java SDK，后面安装的Java SDK会将自己带的java.exe和javaw.exe拷贝到%SystemRoot%\system32目录下，从而覆盖先前版本的java.exe和 javaw.exe，并且在注册表中改写CurrentVersion为后安装的版本。只能改nexus的配置文件了。先建立多个JAVA_HOME的环境变量，比如JDK 1.6 x64的为JAVA_HOME_6_64，JDK 1.6 x32的为JAVA_HOME_6_32，名称随便取，只是为了好区分。修改%NEXUS_HOME%\bin\jsw\conf\wrapper.conf，找到<pre class="brush: bash; gutter: true">wrapper.java.command=java</pre>将其修改为<pre class="brush: bash; gutter: true">wrapper.java.command=%JAVA_HOME_6_32%/bin/java</pre>重启nexus服务即可。</p>
  
+    
     </div>
     <footer class="footer">
     <div class="container">

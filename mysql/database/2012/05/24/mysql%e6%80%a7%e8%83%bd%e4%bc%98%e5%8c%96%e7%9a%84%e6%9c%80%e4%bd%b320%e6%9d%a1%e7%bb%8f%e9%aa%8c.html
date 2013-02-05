@@ -9,7 +9,21 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs_docs_sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/index.html" class="brand">Aaron's Blog</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                        <li><a href="/topics">Topics</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="jumbotron subhead">
         <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
     <div class="container">
@@ -45,6 +59,7 @@ Prepared Statements很像存储过程，是一种运行在后台的SQL语句集�
 <p>使用 ORM (Object Relational Mapper)，你能够获得可靠的性能增涨。一个ORM可以做的所有事情，也能被手动的编写出来。但是，这需要一个高级专家。ORM 的最重要的是“Lazy Loading”，也就是说，只有在需要的去取值的时候才会去真正的去做。但你也需要小心这种机制的副作用，因为这很有可能会因为要去创建很多很多小的查询反而会降低性能。ORM 还可以把你的SQL语句打包成一个事务，这会比单独执行他们快得多得多。目前，个人最喜欢的PHP的ORM是：<a href="http://www.doctrine-project.org/">Doctrine</a>。# 21. 小心“永久链接”
 “永久链接”的目的是用来减少重新创建MySQL链接的次数。当一个链接被创建了，它会永远处在连接的状态，就算是数据库操作已经结束了。而且，自从我们的Apache开始重用它的子进程后——也就是说，下一次的HTTP请求会重用Apache的子进程，并重用相同的 MySQL 链接。PHP手册：<a href="http://php.net/manual/en/function.mysql-pconnect.php">mysql_pconnect()</a>在理论上来说，这听起来非常的不错。但是从个人经验（也是大多数人的）上来说，这个功能制造出来的麻烦事更多。因为，你只有有限的链接数，内存问题，文件句柄数，等等。而且，Apache 运行在极端并行的环境中，会创建很多很多的了进程。这就是为什么这种“永久链接”的机制工作地不好的原因。在你决定要使用“永久链接”之前，你需要好好地考虑一下你的整个系统的架构。文章：<a href="http://net.tutsplus.com/tutorials/other/top-20-mysql-best-practices/" title="Top 20+ MySQL Best Practices">Top 20+ MySQL Best Practices</a></p>
  
+    
     </div>
     <footer class="footer">
     <div class="container">

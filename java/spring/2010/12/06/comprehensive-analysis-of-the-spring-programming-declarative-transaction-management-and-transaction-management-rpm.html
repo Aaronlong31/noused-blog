@@ -9,7 +9,21 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs_docs_sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/index.html" class="brand">Aaron's Blog</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                        <li><a href="/topics">Topics</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="jumbotron subhead">
         <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
     <div class="container">
@@ -52,6 +66,7 @@
 - 基于 @Transactional 的方式将声明式事务管理简化到了极致。开发人员只需在配置文件中加上一行启用相关后处理 Bean 的配置，然后在需要实施事务管理的方法或者类上使用 @Transactional 指定事务规则即可实现事务管理，而且功能也不比其他方式逊色。
 <a href="">关于作者</a><strong> </strong><a href="https://www6.software.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/authors.html">张 建平</a> (<a href="mailto:yerlluo@163.com?subject=%E5%85%A8%E9%9D%A2%E5%88%86%E6%9E%90%20Spring%20%E7%9A%84%E7%BC%96%E7%A8%8B%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%8F%8A%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86">yerlluo@163.com</a>), 软件工程师, Archermind Co.,Ltd曾在某知名培训机构就职，热爱软件开发，故投身软件开发，现在是一名软件工程师。对 Java EE 规范有深入研究。</p>
  
+    
     </div>
     <footer class="footer">
     <div class="container">

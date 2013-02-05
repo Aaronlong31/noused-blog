@@ -9,7 +9,21 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs_docs_sidebar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/index.html" class="brand">Aaron's Blog</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                        <li><a href="/topics">Topics</a></li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="jumbotron subhead">
         <a href="https://github.com/Aaronlong31/aaronlong31.github.com" id="forkme_banner">View on GitHub</a>
     <div class="container">
@@ -44,6 +58,7 @@ innodb_log_buffer_pool_size = n  为InnoDB数据表及其索引而保留的RAM�
 <strong> mysqld程序--其它选项 </strong>
 bind-address = ipaddr  MySQL服务器的IP地址。如果MySQL服务器所在的计算机有多个IP地址，这个选项将非常重要。default-storage-engine = type  新数据表的默认数据表类型(默认设置是MyISAM)。这项设置还可以通过--default-table-type选项来设置。default-timezone = name  为MySQL服务器设置一个地理时区(如果它与本地计算机的地理时区不一样)。ft_min_word_len = n  全文索引的最小单词长度工。这个选项的默认设置是4，意思是在创建全文索引时不考虑那些由3个或更少的字符构建单词。Max-allowed-packet = n  客户与服务器之间交换的数据包的最大长度，这个数字至少应该大于客户程序将要处理的最大BLOB块的长度。这个选项的默认设置是1MB。Sql-mode = model1, mode2, ...  MySQL将运行在哪一种SQL模式下。这个选项的作用是让MySQL与其他的数据库系统保持最大程度的兼容。这个选项的可取值包括ansi、db2、oracle、no_zero_date、pipes_as_concat。注意：如果在配置文件里给出的某个选项是mysqld无法识别的(如，因为犯了一个愚蠢的打字错误)，MySQL服务器将不启动。</p>
  
+    
     </div>
     <footer class="footer">
     <div class="container">

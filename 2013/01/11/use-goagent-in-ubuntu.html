@@ -17,6 +17,8 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li><a href="/index.html">Home</a></li>
+                        <li><a href="/tags">Tags</a></li>
+                        <li><a href="/topics">Topics</a></li>
                     </ul> 
                 </div>
             </div>
@@ -30,25 +32,25 @@
     </div>
     </header>
     <div class="container">
-    <ol>
-<li>安装 python</li>
-</ol>
+    <ul>
+<li>安装 python: <code>sudo apt-get install python</code></li>
+<li>安装GAE for linux，下载地址: <a href="https://developers.google.com/appengine/downloads">https://developers.google.com/appengine/downloads</a> , 下载后解压到/home/zhanglong/tools/google_appengine</li>
+<li>goagent现在托管在github上，地址: <a href="https://github.com/goagent/goagent">https://github.com/goagent/goagent</a> ， 最好fork一下，创建自己的一份copy，以后修改配置文件就修改自己的好了。以我的为例，我的goagent地址: <a href="https://github.com/Aaronlong31/goagent">https://github.com/Aaronlong31/goagent</a></li>
+<li>下载goagent到google_appengine目录:
+  <code>cd /home/zhanglong/tools/google_appengine/</code>,
+  <code>git clone  git@github.com:Aaronlong31/goagent.git</code></li>
+<li>服务器端上传
+<code>cd /home/zhanglong/google_appengine</code>, <code>sudo python appcfg.py update goagent/server/python</code></li>
+<li>客户端使用，修改 <code>/home/zhanglong/tools/google_appengine/goagent/local/proxy.ini</code>中的appid，然后在local目录中运行<code>sudo python proxy.py</code>。</li>
+<li>在Ubuntu Dash中添加快捷方式，在<code>/usr/share/applications/</code>中创建<code>goagent.desktop</code>文件，添加以下内容：</li>
+</ul>
 
 
-<div class="highlight"><pre><code class="sh">    sudo apt-get install python
-    
-</code></pre></div>
+<script src='https://gist.github.com/4705697.js?file='></script>
 
 
-<ol>
-<li>下载goagent</li>
-<li>安装GAE for linux，下载地址: https://developers.google.com/appengine/downloads , 下载后解压到/home/username/tools/google_appengine</li>
-<li>goagent现在托管在github上，地址: https://github.com/goagent/goagent ， 最好fork一下，创建自己的一份copy，以后修改配置文件就修改自己的好了。以我的为例，我的goagent地址: https://github.com/Aaronlong31/goagent</li>
-<li><p>下载goagent到google_appengine目录:</p>
-
-<p> git clone  git@github.com:Aaronlong31/goagent.git /home/username/google_appengine/goagent</p></li>
-</ol>
-
+<p><noscript><pre><code>&lt;html&gt;&lt;body&gt;You are being &lt;a href=&quot;https://gist.github.com/Aaronlong31/4705697/raw/&quot;&gt;redirected&lt;/a&gt;.&lt;/body&gt;&lt;/html&gt;</code></pre></noscript>
+然后就可以在dash中看到goagent了。</p>
  
     </div>
     <footer class="footer">
@@ -57,5 +59,18 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
     </div>
     </footer>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'aaronlong31'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+     }());
+</script>
+
 </body>
 </html>
