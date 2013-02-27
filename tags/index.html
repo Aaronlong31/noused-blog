@@ -16,9 +16,9 @@
                 <a href="/index.html" class="brand">Aaron's Blog</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="/tags">Tags</a></li>
-                        <li><a href="/topics">Topics</a></li>
+                        <li id="index"><a href="/">Home</a></li>
+                        <li id="tags"><a href="/tags">Tags</a></li>
+                        <li id="topics"><a href="/topics">Topics</a></li>
                     </ul> 
                 </div>
             </div>
@@ -34,23 +34,35 @@
     <div class="container">
     <ul>
     
-    <a style="font-size: 13.5px;" href="/tags/wordpress">
-        wordpress</a>,&nbsp;
-    
-    <a style="font-size: 15.0px;" href="/tags/jekyll">
-        jekyll</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/json">
-        json</a>,&nbsp;
+    <a style="font-size: 16.5px;" href="/tags/java">
+        java</a>,&nbsp;
     
     <a style="font-size: 15.0px;" href="/tags/spring">
         spring</a>,&nbsp;
     
-    <a style="font-size: 13.5px;" href="/tags/Ubuntu">
-        Ubuntu</a>,&nbsp;
+    <a style="font-size: 13.5px;" href="/tags/事务">
+        事务</a>,&nbsp;
+    
+    <a style="font-size: 15.0px;" href="/tags/centos">
+        centos</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/DB2">
+        DB2</a>,&nbsp;
+    
+    <a style="font-size: 19.5px;" href="/tags/mysql">
+        mysql</a>,&nbsp;
     
     <a style="font-size: 24.0px;" href="/tags/linux">
         linux</a>,&nbsp;
+    
+    <a style="font-size: 15.0px;" href="/tags/tomcat">
+        tomcat</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/nexus">
+        nexus</a>,&nbsp;
+    
+    <a style="font-size: 15.0px;" href="/tags/jekyll">
+        jekyll</a>,&nbsp;
     
     <a style="font-size: 15.0px;" href="/tags/分辨率">
         分辨率</a>,&nbsp;
@@ -58,29 +70,38 @@
     <a style="font-size: 13.5px;" href="/tags/vmware">
         vmware</a>,&nbsp;
     
-    <a style="font-size: 13.5px;" href="/tags/svn">
-        svn</a>,&nbsp;
+    <a style="font-size: 16.5px;" href="/tags/vim">
+        vim</a>,&nbsp;
     
     <a style="font-size: 13.5px;" href="/tags/打印">
         打印</a>,&nbsp;
     
-    <a style="font-size: 19.5px;" href="/tags/mysql">
-        mysql</a>,&nbsp;
-    
-    <a style="font-size: 16.5px;" href="/tags/java">
-        java</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/事务">
-        事务</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/防火墙">
-        防火墙</a>,&nbsp;
+    <a style="font-size: 13.5px;" href="/tags/json">
+        json</a>,&nbsp;
     
     <a style="font-size: 13.5px;" href="/tags/log4j">
         log4j</a>,&nbsp;
     
-    <a style="font-size: 15.0px;" href="/tags/tomcat">
-        tomcat</a>,&nbsp;
+    <a style="font-size: 13.5px;" href="/tags/Ubuntu">
+        Ubuntu</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/svn">
+        svn</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/mongodb">
+        mongodb</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/jdk">
+        jdk</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/wordpress">
+        wordpress</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/防火墙">
+        防火墙</a>,&nbsp;
+    
+    <a style="font-size: 13.5px;" href="/tags/js">
+        js</a>,&nbsp;
     
     <a style="font-size: 13.5px;" href="/tags/windows">
         windows</a>,&nbsp;
@@ -88,29 +109,8 @@
     <a style="font-size: 13.5px;" href="/tags/jvm">
         jvm</a>,&nbsp;
     
-    <a style="font-size: 15.0px;" href="/tags/centos">
-        centos</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/jdk">
-        jdk</a>,&nbsp;
-    
-    <a style="font-size: 16.5px;" href="/tags/vim">
-        vim</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/js">
-        js</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/DB2">
-        DB2</a>,&nbsp;
-    
     <a style="font-size: 13.5px;" href="/tags/PowerDesigner">
-        PowerDesigner</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/mongodb">
-        mongodb</a>,&nbsp;
-    
-    <a style="font-size: 13.5px;" href="/tags/nexus">
-        nexus</a>
+        PowerDesigner</a>
     
 </ul>
  
@@ -121,7 +121,8 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
     </div>
     </footer>
-    <script type="text/javascript">
+    <span id="active-page" style="display:none">tags</span>
+<script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'aaronlong31'; // required: replace example with your forum shortname
 
@@ -132,6 +133,9 @@
      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
      }());
+    $(function(){
+        $("#"+$("#active-page").text()).addClass("active");
+    })
 </script>
 
 </body>

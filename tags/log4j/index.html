@@ -16,9 +16,9 @@
                 <a href="/index.html" class="brand">Aaron's Blog</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="/tags">Tags</a></li>
-                        <li><a href="/topics">Topics</a></li>
+                        <li id="index"><a href="/">Home</a></li>
+                        <li id="tags"><a href="/tags">Tags</a></li>
+                        <li id="topics"><a href="/topics">Topics</a></li>
                     </ul> 
                 </div>
             </div>
@@ -105,6 +105,17 @@
     
 
 
+<div>
+    <div class="date"><i class="icon-calendar"></i> April 19, 2011</div>
+    <div class="post-title"><a href="/tomcat/2011/04/19/log4j-log-file-default-path.html">log4j日志文件默认路径</a></div>
+    <div class="comment">
+    
+     <a href="/tags/log4j" rel="tooltip" title="View posts tagged with &quot;log4j&quot;"><span class="label label-info">log4j</span></a>                    
+    
+    </div>
+    <div class="clear"></div>
+</div>
+<!--
 <h3><a href="/tomcat/2011/04/19/log4j-log-file-default-path.html">log4j日志文件默认路径</a></h3>
 <div class="content">
     <p>
@@ -115,6 +126,7 @@
     
     </p>
 </div>
+-->
 <hr />
 
 
@@ -237,7 +249,8 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
     </div>
     </footer>
-    <script type="text/javascript">
+    <span id="active-page" style="display:none">tags</span>
+<script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'aaronlong31'; // required: replace example with your forum shortname
 
@@ -248,6 +261,9 @@
      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
      }());
+    $(function(){
+        $("#"+$("#active-page").text()).addClass("active");
+    })
 </script>
 
 </body>
