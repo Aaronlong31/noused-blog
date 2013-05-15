@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>图形化显示排序过程</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="bootstrap.min.css" />
+<style type="text/css">
+body {margin: 0 20px 0 20px;}
+*{font-family:Arial, Helvetica, sans-serif}
+.div1{ 
+background-color:#35BDDB; 
+float:left; 
+margin-left:1px;
+color:#fff;
+vertical-align:middle;
+font-size:0px;
+}
+.swap{background-color:#544F51}
+.compare{background-color:#CFD0D2}
+#content{ width:100%; height:401px; background-color:#222222; text-align:center; padding:0px}
+</style>
+<script type="text/javascript" src="uglifyjs-parser.js"></script>
+<script type="text/javascript" src="jscex.js"></script>
+<script type="text/javascript" src="jscex.builderBase.js"></script>
+<script type="text/javascript" src="jscex.async.js"></script>
+<script type="text/javascript" src="jquery-1.4.2.js"></script>
+<script type="text/javascript">
+
+[].indexOf || (Array.prototype.indexOf = function(v){
+       for(var i = this.length; i-- && this[i] !== v;);
+       return i;
+});
+var TOTAL_HEIGHT = 400;
+var numbs = [];
+var numbers = 5;
+var divWidth = Math.floor(1000/numbers);
+var ti = 1;
+var speed = 40;
+var step = 0;
+var step1 = 0;
+function init(){
+	step1 = 0;
+	$("#step1").html("");
+	numbers = $("#numb").val();
+	if(isNaN(numbers) || Number(numbers) <= 0){
+		numbers = 40;
+		$("#numb").val(40);
+	}
+	if(Number(numbers) > 360){
+		numbers = 360;
+		$("#numb").val(360);
+	}
+	numbs = [];
+	step = 0;
+	ti = 1;
+	$("#content").html("");
+	var n = Math.floor(TOTAL_HEIGHT/numbers);
+	for (var i = 1; i <= numbers; i++) {
+		numbs.push(i * n);
+	};
+	numbs.sort(function(){ 
+		return Math.round(Math.random()) - 0.5;
+	});
+	$("#step").html("");
+	$.each(numbs, function(i,n){
+		$("<div>").addClass("div1").css({width: (100/numbers - 0.2)+"%", height: n + "px", "margin-top": (TOTAL_HEIGHT-n) + "px"})
+			.attr("id", n).appendTo($("#content"));
+	});
+};
+
+$(function(){
+    $(":button").addClass("btn");
+	init();
+	$("#random").click(init);
+	$("#speed").change(function(){
+		speed = (11-this.value) * 10;
+	});
+	$("#sort button").click(function(){
+		$(":input,:button").attr("disabled","disabled");
+		init();
+		starter(this.id).start();
+	});
+});
+
+var starter = eval(Jscex.compile("async", function(name){
+	$await(eval(name)(numbs));
+	//$await(QuickSort(numbs));
+	$await(clear());
+}));
+
+var clear = eval(Jscex.compile("async", function(){
+	$(":input").attr("disabled","");
+	$(".div1").removeClass("swap");
+	$(".div1").removeClass("compare");
+	$(":input,:button").attr("disabled","");
+}));
+// 将DIV2插入到DIV1之前
+var insertBefore = eval(Jscex.compile("async", function(div1, div2){
+	$(".div1").removeClass("swap");
+	$(".div1").removeClass("compare");
+	div1.addClass("swap");
+	div2.addClass("swap");
+	div2.insertBefore(div1);
+	$await(Jscex.Async.sleep(speed));
+}));
+
+// 交换数组中的两个元素
+var swap = eval(Jscex.compile("async", function(arrays, i, j){
+	var t = arrays[i];
+	var m = arrays[j];
+	arrays[i] = arrays[j];
+	arrays[j] = t;
+	$await(swapDiv($("#" + t), $("#" + m)));
+}));
+
+// 交换DIV
+var swapDiv = eval(Jscex.compile("async", function(div1, div2){
+	$(".div1").removeClass("swap");
+	$(".div1").removeClass("compare");
+	var tempDiv = $("<div>");
+	div1.after(tempDiv);
+	div2.after(div1);
+	tempDiv.after(div2);
+	tempDiv.remove();
+	div1.addClass("swap");
+	div2.addClass("swap");
+	$await(Jscex.Async.sleep(speed*5));
+}));
+
+var compare = eval(Jscex.compile("async", function(x, y){
+	$(".div1").removeClass("swap");
+	$(".div1").removeClass("compare");
+	$("#" + x).addClass("compare");
+	$("#" + y).addClass("compare");
+	$await(Jscex.Async.sleep(speed));
+	return x > y;
+}));
+
+// 冒泡排序
+var bubbleSort = eval(Jscex.compile("async", function(array){
+	for(i = 0; i< array.length;i++){
+		for(j = i + 1;j<array.length;j++){
+			var more = $await(compare(array[i], array[j]));
+			if(more){
+				$await(swap(array, i, j));
+			}
+		}
+	}
+}));
+
+// 选择排序
+var SelectSort = eval(Jscex.compile("async", function(array){
+	var min;
+	for(i = 0; i< array.length;i++){
+		min = i;
+		for(j = i + 1;j<array.length;j++){
+			var more = $await(compare(array[min], array[j]));
+			min = more ? j : min;
+		}
+		$await(swap(array, i, min));
+	}
+	
+}));
+
+// 合并排序
+var MergeSort = eval(Jscex.compile("async", function(arrays){
+	$await(_MergeSort(arrays, 0, arrays.length - 1));
+}));
+
+var _MergeSort = eval(Jscex.compile("async", function(arrays, p, r){
+	if(p < r){
+		var q = Math.floor((r + p)/2);
+		$await(_MergeSort(arrays, p, q));
+		$await(_MergeSort(arrays, q + 1, r));
+		$await(merge(arrays, p, q, r));
+	}
+}));
+
+var merge = eval(Jscex.compile("async", function(arrays, p, q, r){
+	var i = j = 0;
+	var n1 = q - p + 1;
+	var n2 = r -q;
+	var la = [];
+	var ra = [];
+	for(i = 0; i < n1; i++){
+		la[i] = arrays[p + i];
+	}
+	for(i = 0; i < n2; i++){
+		ra[i] = arrays[q + 1 + i];
+	}
+	i = j = 0;
+	for(k = p; k <= r; k++){
+		var m = la[i];
+		var n = ra[j];
+        var more = $await(compare(n, m));
+		if((j == n2) || (more)){
+			arrays[k] = la[i];
+			i++;
+		} else {
+			arrays[k] = ra[j];
+			j++;
+			$await(insertBefore($('#' + m), $('#' + n)));
+			$await(Jscex.Async.sleep(speed));
+		}
+	}
+}));
+
+// 堆排序
+var HeapSort = eval(Jscex.compile("async", function(array){
+	for(i = Math.floor(array.length/2 - 1); i >= 0; i--){
+		$await(max_heapify(array, i, array.length));
+	}
+	var heapSize = array.length;
+	for(i = array.length; i > 1; i--){
+		$await(swap(array, 0, i-1));
+		$await(max_heapify(array, 0, --heapSize));
+	}
+}));
+var max_heapify = eval(Jscex.compile("async", function(array, i, heapSize){
+	var l;
+	var r;
+	var largest;
+	while(true){
+		l = 2*i + 1;
+		r = 2*(i+1);
+        var more = $await(compare(array[l], array[i]));
+		largest = ((l < heapSize) && more) ? l : i;
+        more = $await(compare(array[r], array[largest]));
+		largest = ((r < heapSize) && more) ? r : largest;
+		if(largest != i){
+			$await(swap(array, i, largest));
+			i = largest;
+		} else{
+			break;
+		}
+	}
+}));
+
+// 插入排序
+var InsertSort = eval(Jscex.compile("async", function(array){
+	for(var i = 0; i < array.length; i++){
+		for(var j = i + 1; j > 0; j--){
+			var more = $await(compare(array[j-1], array[j]));
+			if(more) {
+				$await(swap(array, j-1, j));
+			} else {
+				break;
+			}
+		}
+	}
+}));
+
+// 快速排序
+var QuickSort = eval(Jscex.compile("async", function(array){
+	$await(_QuickSort(array, 0, array.length));
+}));
+
+var _QuickSort = eval(Jscex.compile("async", function(array, left, right){    
+	var i,j;   
+	var middle,temp;   
+	i = left + 1;   
+	j = right - 1;   
+	middle = array[left];   
+
+	while(true){   
+        while(i < right-1) {
+            var more = $await(compare(array[i], array[left]));
+            if(more) break;
+            i++;
+        }
+        while(j > left && array[j] > middle){
+            var more = $await(compare(array[left], array[j]));
+            if(more) break;
+            j--;
+        }
+		if(i>=j)   
+			break;
+		$await(swap(array, i, j));
+	}   
+
+    if (left != j)
+        $await(swap(array, left, j));  
+	if(left<j)    
+		$await(_QuickSort(array,left,j));   
+	if(right>i)    
+		$await(_QuickSort(array,i,right));   
+}));
+
+</script>
+</head>
+<body>
+<div id="num"></div>
+<div id="sort">
+<button id="bubbleSort">bubbleSort</button>
+<button id="QuickSort">QuickSort</button>
+<button id="MergeSort">MergeSort</button>
+<button id="HeapSort">HeapSort</button>
+<button id="SelectSort">SelectSort</button>
+<button id="InsertSort">InsertSort</button>
+</div>
+<input id="numb" value="40"/>
+<button id="random">init</button>
+speed:<select id="speed">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7" selected="selected">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+</select>
+<!--step:<span id="step"></span>-->
+<div id="n"></div>
+<div id="content"></div>
+</body>
+</html>
