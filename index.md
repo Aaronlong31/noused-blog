@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Home
+tagline: Post List
 ---
 {% include JB/setup %}
 
