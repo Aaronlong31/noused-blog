@@ -1,20 +1,8 @@
-
-http://github.zlong.org/sitemap.txt
-http://github.zlong.org/index.html
-http://github.zlong.org/atom.xml
-http://github.zlong.org/pages.html
-http://github.zlong.org/archive.html
-http://github.zlong.org/rss.xml
-http://github.zlong.org/tags.html
-http://github.zlong.org/Untitled Folder/sitemap.txt
-http://github.zlong.org/Untitled Folder/index.html
-http://github.zlong.org/Untitled Folder/atom.xml
-http://github.zlong.org/Untitled Folder/pages.html
-http://github.zlong.org/Untitled Folder/archive.html
-http://github.zlong.org/Untitled Folder/rss.xml
-http://github.zlong.org/Untitled Folder/tags.html
-http://github.zlong.org/Untitled Folder/categories.html
-http://github.zlong.org/categories.html
-
-http://github.zlong.org/lessons/2011/12/29/jekyll-introduction
-http://github.zlong.org/Untitled Folder/2011/12/29/jekyll-introduction
+---
+# Remember to set production_url in your _config.yml file!
+title : Sitemap
+---
+{% for page in site.pages %}
+{{site.production_url}}{{ page.url }}{% endfor %}
+{% for post in site.posts %}
+{{site.production_url}}{{ post.url }}{% endfor %}
