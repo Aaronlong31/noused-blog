@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "Install and Configuration Cassandra"
-description: ""
-category: 
+title: "安装配置Cassandra"
+category: tutorial
 tags: [cassandra]
 ---
 {% include JB/setup %}
