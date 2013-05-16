@@ -6,4 +6,4 @@ category:
 tags: [fun]
 ---
 {% include JB/setup %}
-<iframe src="/demo/red-black-tree" width="770" height="550" scrolling="yes" frameborder="0"></iframe>
+<iframe src="/demo/red-black-tree" width="770" height="550" scrolling="yes" frameborder="0"> </iframe>
