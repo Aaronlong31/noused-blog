@@ -6,4 +6,4 @@ category:
 tags: [fun]
 ---
 {% include JB/setup %}
-<iframe src="/demo/three-view" width="770" height="550" scrolling="no" frameborder="0"> </iframe>
+<iframe src="/demo/three-view" width="770" height="550" scrolling="no" frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1"> </iframe>

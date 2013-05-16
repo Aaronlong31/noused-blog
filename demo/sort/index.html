@@ -24,6 +24,7 @@ font-size:0px;
 <script type="text/javascript" src="jscex.builderBase.js"></script>
 <script type="text/javascript" src="jscex.async.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/fullscreen.js"></script>
 <script type="text/javascript">
 
 [].indexOf || (Array.prototype.indexOf = function(v){
@@ -285,7 +286,6 @@ var _QuickSort = eval(Jscex.compile("async", function(array, left, right){
 	if(right>i)    
 		$await(_QuickSort(array,i,right));   
 }));
-
 </script>
 </head>
 <body>
@@ -316,4 +316,7 @@ speed:<select id="speed">
 <div id="n"></div>
 <div id="content"></div>
 </body>
+<script type="text/javascript">
+    acceptFullscreen();
+</script>
 </html>
