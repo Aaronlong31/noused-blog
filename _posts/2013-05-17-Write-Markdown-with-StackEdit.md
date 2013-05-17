@@ -1,3 +1,11 @@
+---
+layout: post
+title: "使用StackEdit编写Markdown"
+description: ""
+category: tutorial
+tags: [markdown]
+---
+{% include JB/setup %}
 
 Welcome to StackEdit!	{#welcome}
 =====================
