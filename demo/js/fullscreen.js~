@@ -8,7 +8,7 @@ function acceptFullscreen(){
     document.body.appendChild(imgEle);
 }
 function enterFullscreen() {
- window.open(window.location, "_blank", "fullscreen=yes, scrollbars=auto"); 
+ window.open(window.location, "_self", "fullscreen=yes, scrollbars=auto"); 
 return;
 /*
     var element = document.body;

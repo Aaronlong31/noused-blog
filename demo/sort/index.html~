@@ -3,7 +3,6 @@
 <head>
 <title>图形化显示排序过程</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 <style type="text/css">
 body {margin: 0 20px 0 20px;}
