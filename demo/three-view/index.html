@@ -246,7 +246,9 @@
             if (event.touches.length == 1) {
                 event.preventDefault();
                 mouseXOnMouseDown = event.touches[0].pageX - windowHalfX;
-                targetRotationOnMouseDown = targetRotation;
+                //targetRotationOnMouseDown = targetRotation;
+                targetXRotationOnMouseDown = targetXRotation;
+                targetYRotationOnMouseDown = targetYRotation;
             }
         }
 
@@ -254,7 +256,9 @@
             if (event.touches.length == 1) {
                 event.preventDefault();
                 mouseX = event.touches[0].pageX - windowHalfX;
-                targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.05;
+                //targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.05;
+                targetYRotation = targetYRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
+                targetXRotation = targetXRotationOnMouseDown + ( mouseY - mouseYOnMouseDown ) * 0.02;
             }
         }
 
