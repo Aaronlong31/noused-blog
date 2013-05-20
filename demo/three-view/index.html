@@ -246,6 +246,7 @@
             if (event.touches.length == 1) {
                 event.preventDefault();
                 mouseXOnMouseDown = event.touches[0].pageX - windowHalfX;
+                mouseYOnMouseDown = event.touches[0].pageY - windowHalfY;
                 //targetRotationOnMouseDown = targetRotation;
                 targetXRotationOnMouseDown = targetXRotation;
                 targetYRotationOnMouseDown = targetYRotation;
@@ -256,6 +257,7 @@
             if (event.touches.length == 1) {
                 event.preventDefault();
                 mouseX = event.touches[0].pageX - windowHalfX;
+                mouseY = event.touches[0].pageY - windowHalfY;
                 //targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.05;
                 targetYRotation = targetYRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
                 targetXRotation = targetXRotationOnMouseDown + ( mouseY - mouseYOnMouseDown ) * 0.02;
