@@ -43,12 +43,12 @@
         var voxelPosition = new THREE.Vector3();
 
         var group = new THREE.Object3D();
-        var frameGeometry = new THREE.CubeGeometry(270, 270, 270);
+        var frameGeometry = new THREE.CubeGeometry(450, 450, 450);
         var frameMaterial = new THREE.MeshLambertMaterial({wireframe: true, color: 0xffffff,shading: THREE.FlatShading,overdraw:true, opacity: 0.5, transparent: true});
         var frame = new THREE.Mesh(frameGeometry, frameMaterial );
         group.add(frame);
 
-        var geometry = new THREE.CubeGeometry(30, 30, 30);
+        var geometry = new THREE.CubeGeometry(50, 50, 50);
         var material = new THREE.MeshLambertMaterial({color: 0xff6666, shading: THREE.FlatShading, overdraw:true, opacity: 0.9, transparent: true});
 
         camera.position.z = 350;
@@ -165,9 +165,9 @@
             for (var i = 0; i < uniqueVectors.length; i++) {
                 var vector = uniqueVectors[i];
                 var cube = new THREE.Mesh(geometry, material);
-                cube.position.x = vector.x * 30;
-                cube.position.y = vector.y * 30;
-                cube.position.z = vector.z * 30;
+                cube.position.x = vector.x * 50;
+                cube.position.y = vector.y * 50;
+                cube.position.z = vector.z * 50;
                 cubes.push(cube);
                 group.add(cube);
             };
@@ -247,7 +247,6 @@
                 event.preventDefault();
                 mouseXOnMouseDown = event.touches[0].pageX - windowHalfX;
                 mouseYOnMouseDown = event.touches[0].pageY - windowHalfY;
-                //targetRotationOnMouseDown = targetRotation;
                 targetXRotationOnMouseDown = targetXRotation;
                 targetYRotationOnMouseDown = targetYRotation;
             }
@@ -258,7 +257,6 @@
                 event.preventDefault();
                 mouseX = event.touches[0].pageX - windowHalfX;
                 mouseY = event.touches[0].pageY - windowHalfY;
-                //targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.05;
                 targetYRotation = targetYRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.02;
                 targetXRotation = targetXRotationOnMouseDown + ( mouseY - mouseYOnMouseDown ) * 0.02;
             }
