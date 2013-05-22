@@ -13,4 +13,4 @@ tags: [markdown]
 
 	<iframe src="http://slid.es/longzhang/deck/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true"> </iframe>
 
-注意，在`</iframe>`前面要有空格。
+注意，在`</iframe>`前面要有空格，不然iframe后面的内容都不会输出。
