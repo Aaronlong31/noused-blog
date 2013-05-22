@@ -35,6 +35,14 @@ body {
   border: 0;
 }
 
+div.contents {
+    margin-left:0px;
+}
+
+div.date {
+    line-height:28px;
+    float:left;
+}
 
 /* tag_box ======================================================== */
 
@@ -43,6 +51,7 @@ body {
 	margin:0;
 	padding:5px 0 ;
 	overflow:hidden;
+    float:left;
 }
 .tag_box li {
 	line-height:28px;
