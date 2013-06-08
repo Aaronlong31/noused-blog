@@ -36,7 +36,7 @@
 
         var scene = new THREE.Scene();
         var camera = new THREE.OrthographicCamera( cWidth / - 2, cWidth / 2, cHeight / 2, cHeight / - 2, 1, 1000 );
-        var renderer = new THREE.WebGLRenderer();
+        var renderer = new THREE.WebGLRenderer({antialias:true});
         renderer.setSize(cWidth, cHeight);
         document.body.appendChild(renderer.domElement);
 
