@@ -125,7 +125,6 @@ tags: [linux]
     # Add user 
     /sbin/useradd -s /sbin/nologin -m  "${_fuser}"
     echo "${_fpass}" | /usr/bin/passwd "${_fuser}" --stdin
-    ```
 
 ###4 删除匹配（前置方式）
 语法：
@@ -334,19 +333,19 @@ OK。
 
 总结：字符串操作和扩展变量  
 
-|express						|descript               |
-|-----------------------------|----------------------|
-|${parameter:-defaultValue} |获取默认变量值     		|
-|${parameter:=defaultValue}	|设置默认变量值      		|
-|${parameter:?"Error Message"}	|当变量未设置时显示错误信息|
-|${#var}						|获取字符串长度  			|
-|${var%pattern}					|后置方式删除最短匹配		|
-|${var%%pattern}				|后置方式删除最长匹配		|
-|${var:num1:num2}				|截取字符串				|
-|${var#pattern}					|前置方式删除最短匹配		|
-|${var##pattern}				|前置方式删除最长匹配		|
-|${var/pattern/string}			|查找第一个匹配并替换		|
-|${var//pattern/string}			|查找所有匹配并删除		|
+|express						|descript               
+|-----------------------------|----------------------
+|${parameter:-defaultValue} |获取默认变量值     		
+|${parameter:=defaultValue}	|设置默认变量值      		
+|${parameter:?"Error Message"}	|当变量未设置时显示错误信息
+|${#var}						|获取字符串长度  			
+|${var%pattern}					|后置方式删除最短匹配		
+|${var%%pattern}				|后置方式删除最长匹配		
+|${var:num1:num2}				|截取字符串				
+|${var#pattern}					|前置方式删除最短匹配		
+|${var##pattern}				|前置方式删除最长匹配		
+|${var/pattern/string}			|查找第一个匹配并替换		
+|${var//pattern/string}			|查找所有匹配并删除		
 
 
 > Written with [StackEdit](http://benweet.github.io/stackedit/).
