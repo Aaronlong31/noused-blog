@@ -13,10 +13,8 @@ tags: [linux]
 ###1.设置Shell变量默认值
 语法如下：
 
-```
-${parameter:-defaultValue}
-var=${parameter:-defaultValue}
-```
+    ${parameter:-defaultValue}
+    var=${parameter:-defaultValue}
 
 如果`parameter`没有设置值，则`var`为`defaultValue`。在这个例子中，shell脚本接收命令行参数，你可以将一些最常用的值作为默认值，这样就不用每次都输入它们了。比如下面的例子，如果$1没有值，则使用root作为默认值赋值给u:
 
