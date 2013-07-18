@@ -81,6 +81,7 @@ tags: [solr]
 ####group.sort:组内排序用,默认和sort参数一样
 ***
 ###[dismax][4]参数
+
 >**需要设置`defType=dismax`**
 
 这些参数都会影响用于排序的score. 
