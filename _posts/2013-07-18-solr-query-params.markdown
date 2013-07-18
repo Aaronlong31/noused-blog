@@ -8,7 +8,8 @@ tags: [solr]
 {% include JB/setup %}
 
 参数说明
-###q:主要的查询参数
+###[common 查询参数][2]
+####q:要查询的语句
 
     q=str
     q=text:str
@@ -102,11 +103,14 @@ tags: [solr]
     q={!frange l= 1}query($qq)&qq=李天一
 
 
+
+> [Apache Solr Reference Guide][7]
+> Written with [StackEdit](http://benweet.github.io/stackedit/).
+
 [1]: http://wiki.apache.org/solr/FieldCollapsing
-[2]: http://wiki.apache.org/solr/SolrQuerySyntax
-[3]: http://wiki.apache.org/solr/FunctionQuery
-[4]: http://wiki.apache.org/solr/DisMaxQParserPlugin
+[2]: https://cwiki.apache.org/confluence/display/solr/Common+Query+Parameters
+[3]: https://cwiki.apache.org/confluence/display/solr/Function+Queries
+[4]: https://cwiki.apache.org/confluence/display/solr/The+DisMax+Query+Parser
 [5]: https://cwiki.apache.org/confluence/display/solr/Result+Grouping "Result+Group"
 [6]: https://cwiki.apache.org/confluence/display/solr/Highlighting "Highlighting"
-
-> Written with [StackEdit](http://benweet.github.io/stackedit/).
+[7]: https://cwiki.apache.org/confluence/display/solr/Apache+Solr+Reference+Guide "Apache Solr Reference Guide"
