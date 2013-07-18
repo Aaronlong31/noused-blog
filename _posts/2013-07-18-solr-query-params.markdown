@@ -105,7 +105,6 @@ tags: [solr]
 
 
 > [Apache Solr Reference Guide][7]
-> Written with [StackEdit](http://benweet.github.io/stackedit/).
 
 [1]: http://wiki.apache.org/solr/FieldCollapsing
 [2]: https://cwiki.apache.org/confluence/display/solr/Common+Query+Parameters
