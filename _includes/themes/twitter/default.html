@@ -14,6 +14,7 @@
     <!-- Le styles -->
     <script src="{{ ASSET_PATH }}/js/jquery.min.js"></script>
     <script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">    
@@ -94,4 +95,7 @@
 
     {% include JB/analytics %}
   </body>
+  <script type="text/javascript">
+    $("code").addClass("prettyprint");
+  </script>
 </html>
