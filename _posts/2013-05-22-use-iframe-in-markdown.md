@@ -5,7 +5,6 @@ description: ""
 category: 
 tags: [markdown]
 ---
-{% include JB/setup %}
 
 {% highlight html %}
 <iframe src="http://slid.es/longzhang/deck/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
