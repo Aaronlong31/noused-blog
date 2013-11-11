@@ -140,3 +140,6 @@ res/anim/rotate.xml
 Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate);
 button.startAnimation(animation);
 {% endhighlight %}
+想要停止动画，则简单的调用`button.clearAnimation()`即可。
+
+--The End.
