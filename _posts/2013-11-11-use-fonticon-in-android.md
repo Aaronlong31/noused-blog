@@ -113,3 +113,30 @@ res/drawable/button_background_pressed.xml
 {% endhighlight %}
 这里还可以为不同状态的button设置不同的textColor，总之非常方便！  
 这样一切就OK了，很简单吧！
+还有一点，如果想要图标能旋转，则要为图标设置旋转动画，旋转的xml如下：  
+res/anim/rotate.xml
+{% highlight xml %}
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/linear_interpolator">
+    <rotate
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        android:repeatCount="-1"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="1000"/>
+</set>
+{% endhighlight %}
+
+* 其中fromDegress设置动画开始的角度
+* toDegress设置单次动画结束的角度
+* repeatCount=-1则说明动画为无限循环
+* pivotX和pivotY是设置动画旋转的圆心，这里都设置为50%，即为围绕图标的中心旋转
+* duration是设置单次动画的时间，单位ms
+
+再将旋转动画加到button上：
+{% highlight java %}
+Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+button.startAnimation(animation);
+{% endhighlight %}
