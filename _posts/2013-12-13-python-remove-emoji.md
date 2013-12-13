@@ -44,8 +44,12 @@ with open("text2", "w") as f:
     f.write(a.encode("utf-8"))
 {% endhighlight %}
 
+另外，还有些符号如Miscellaneous Symbols（编码范围：U+2600-U+26FF)，Dingbat（编码范围：U+2700-U+27BF)，由于它们是单字节的编码，放在mysql中不会有问题，如果想删除这些字符，在正则表达式中加上即可。
+
 参考链接：  
 
-1. [http://en.wikipedia.org/wiki/Emoji](http://en.wikipedia.org/wiki/Emoji)
-2. [http://zh.wikipedia.org/wiki/UTF-16](http://zh.wikipedia.org/wiki/UTF-16)
-3. [stackoverflow](http://stackoverflow.com/questions/12636489/python-convert-4-byte-char-to-avoid-mysql-error-incorrect-string-value?lq=1)
+1. [Emoji](http://en.wikipedia.org/wiki/Emoji)
+2. [Dingbat](http://en.wikipedia.org/wiki/Dingbat)
+3. [Miscellaneous Symbols](http://en.wikipedia.org/wiki/Miscellaneous_Symbols)
+4. [UTF-16](http://zh.wikipedia.org/wiki/UTF-16)
+5. [Stackoverflow](http://stackoverflow.com/questions/12636489/python-convert-4-byte-char-to-avoid-mysql-error-incorrect-string-value?lq=1)
