@@ -44,7 +44,8 @@ with open("text2", "w") as f:
     f.write(a.encode("utf-8"))
 {% endhighlight %}
 
-参考链接：
+参考链接：  
+
 1. [http://en.wikipedia.org/wiki/Emoji](http://en.wikipedia.org/wiki/Emoji)
 2. [http://zh.wikipedia.org/wiki/UTF-16](http://zh.wikipedia.org/wiki/UTF-16)
 3. [stackoverflow](http://stackoverflow.com/questions/12636489/python-convert-4-byte-char-to-avoid-mysql-error-incorrect-string-value?lq=1)
