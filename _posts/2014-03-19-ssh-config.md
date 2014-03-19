@@ -21,11 +21,6 @@ config value
 config value1 value2
 ```
 
-```java
-// TODO just for test
-private String value = "1";
-```
-
 也可以使用=号：
 
 ```bash
