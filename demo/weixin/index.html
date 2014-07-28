@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<title>Document</title>
+</head>
+<body>
+	<input type="radio" name="app" onclick="chooseApple()" checked="checked">
+	小苹果：
+	<input type="text" placeholder="1000" value="235" onchange="changeAppleScore(this.value)">
+	<br/>
+	<input type="radio" name="app" onclick="chooseMao()">
+	神经猫：
+	<input type="text" placeholder="1000" value="-1" onchange="changeMaoScore(this.value)">
+	<br/>
+	<input type="radio" name="app" onclick="chooseIQ()">
+	IQ：
+	<input type="text" placeholder="1000" value="180" onchange="changeIQScore(this.value)">
+</body>
+<script>
+window.shenjingmao = {
+    "imgUrl": "http://1251001823.cdn.myqcloud.com/1251001823/wechat/mao80.jpg",
+    "timeLineLink": "http://1251001823.cdn.myqcloud.com/1251001823/wechat/sjm/launcher",
+    "tTitle": "我用了${score}步围住神经猫，击败100%的人，你能超过我吗？",
+    "tContent": "在9×9范围内的格子中，使用色块围住白色神经猫。",
+    "score":-1
+};
+window.apple = {
+    "imgUrl": "http://mmbiz.qpic.cn/mmbiz/9OwLibM3EYaq99oD6D4qrWCBqniciarRJwicGbRqtPNxMBnD0STJObBrD19HtXCoKnnSUJfc4mdOKhn2zLDInWcCIQ/640",
+    "timeLineLink": "http://203.195.128.194/games/14/apple.html?from=share",
+    "tTitle":'我吃掉了${score}个小苹果，不服来挑战！！！',
+    "tContent": "",
+    "score":235
+};
+window.iq = {
+	"imgUrl": "http://img3.myapp.com/image/18/93/24/5C3B/ICON_48_48/IQTest_0.png",
+	"timeLineLink": "http://203.195.128.194/games/08/iqtest.html?from=share",
+	"tTitle": "经过测试我的智商是${score}，你也来测一下，比比看谁高！",
+	"tContent": "最新IQ智商测试，炎炎夏日，快来挑战一吧~~~？",
+	"score":180
+};
+window.shareData = window.apple;
+var appid = '';
+function chooseApple() {
+	window.shareData = window.apple;
+}
+function chooseMao() {
+	window.shareData = window.shenjingmao;
+}
+function chooseIQ() {
+	window.shareData = window.iq;
+}
+function changeMaoScore(s) {
+	window.shenjingmao.score = s;
+}
+function changeAppleScore(s) {
+	window.apple.score = s;
+}
+function changeIQScore(s) {
+	window.iq.score = s;
+}
+function getShareTitle(){
+	return window.shareData.tTitle.replace("${score}", window.shareData.score);
+}
+function shareFriend() {
+    WeixinJSBridge.invoke('sendAppMessage',{
+        "img_url": window.shareData.imgUrl,
+        "img_width": "200",
+        "img_height": "200",
+        "link": window.shareData.timeLineLink,
+        "desc": window.shareData.tContent,
+        "title": getShareTitle()
+    }, function(res) {
+    })
+}
+function shareTimeline() {
+    WeixinJSBridge.invoke('shareTimeline',{
+        "img_url": window.shareData.imgUrl,
+        "img_width": "200",
+        "img_height": "200",
+        "link": window.shareData.timeLineLink,
+        "desc": window.shareData.tContent,
+        "title": getShareTitle()
+    }, function(res) {
+    });
+}
+function shareWeibo() {
+    WeixinJSBridge.invoke('shareWeibo',{
+        "content": window.shareData.tContent,
+        "url": window.shareData.timeLineLink,
+    }, function(res) {
+    });
+}
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    WeixinJSBridge.on('menu:share:appmessage', function(argv){
+        shareFriend();
+    });
+    WeixinJSBridge.on('menu:share:timeline', function(argv){
+        shareTimeline();
+    });
+    WeixinJSBridge.on('menu:share:weibo', function(argv){
+        shareWeibo();
+    });
+}, false);
+</script>
+
+</html>
