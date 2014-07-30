@@ -17,6 +17,9 @@
 	<input type="radio" name="app" onclick="chooseIQ()">
 	IQ：
 	<input type="text" placeholder="1000" value="180" onchange="changeIQScore(this.value)">
+    <br>
+    <input type="radio" name="app" onclick="chooseSelang()">
+    色狼
 </body>
 <script>
 window.shenjingmao = {
@@ -40,6 +43,12 @@ window.iq = {
 	"tContent": "最新IQ智商测试，炎炎夏日，快来挑战一吧~~~？",
 	"score":180
 };
+window.selang = {
+    "imgUrl":"http://html5.boyaa.com/mini/find/assets/img/find.logo.png",
+    "timeLineLink":"http://wbpkh5001.17c.cn/html5/",
+    "tTitle":"我闯过82关，击败100%的人！我是【孤独求色lv82】！不服来战！",
+    "tContent": "找出所有色块中颜色不同的一块。分享朋友圈，找到身边的色魔"
+}
 window.shareData = window.apple;
 var appid = '';
 function chooseApple() {
@@ -50,6 +59,9 @@ function chooseMao() {
 }
 function chooseIQ() {
 	window.shareData = window.iq;
+}
+function chooseSelang() {
+    window.shareData = window.selang;
 }
 function changeMaoScore(s) {
 	window.shenjingmao.score = s;
