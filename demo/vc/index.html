@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<style>
+		table {
+			border-collapse:collapse;
+		}
+		td {
+			border: 1px solid #ccc;
+			width: 40px;
+			height:40px;
+			line-height: 40px;
+			text-align: center;
+			font-family: serif;
+			color: #fff;
+			transition: 1s;
+		}
+		td.filled {
+			background-color: #2ecc71;
+		}
+
+	</style>
+
+</head>
+<body>
+	<input type="range" id="count" min="3" max="21" value="9" step="2"><label id="label"></label>
+	<table>
+	</table>
+
+</body>
+<script>
+	$(function(){
+		var table = $('table')
+		$('#count').change(function(){
+			init(this.value);
+		});
+		function init(count){
+			table.html('');
+			$("#label").text(count);
+			for(var i = 0;i < count; i++) {
+				var tr = $('<tr>');
+				tr.appendTo(table);
+				for(var j = 0;j < count; j++) {
+					$('<td>').prop({id: i+"_"+j}).appendTo(tr);
+				}
+			}
+			var max = count*count;
+			var rowIndex = 0;
+			var colIndex = (count-1)/2;
+			for(var i = 1;i<=max;i++){
+				//$("#"+rowIndex+"_"+colIndex).text(i);
+				fillNumber($("#"+rowIndex+"_"+colIndex), i);
+				if(i%count == 0) {
+					rowIndex = (rowIndex+1)%count;
+				} else {
+					rowIndex = (rowIndex-1+count*2)%count;
+					colIndex = (colIndex+1)%count;
+				}
+			}
+		}
+		function fillNumber(cell, number) {
+			setTimeout(function(){cell.text(number).addClass('filled');}, number*100);
+		}
+		init(9);
+
+	});
+</script>
+</html>
